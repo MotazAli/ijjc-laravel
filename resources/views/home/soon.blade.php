@@ -1,6 +1,8 @@
 
 <x-layouts.soon>
     <div x-data="{
+                    ijjcVideo_Portrait : 'https://res.cloudinary.com/dfw7q7qe2/video/upload/v1665157850/ijjc/ijjc_video_port_pmc34x.mp4',
+                    ijjcVideo_landscape : 'https://res.cloudinary.com/dfw7q7qe2/video/upload/v1665157858/ijjc/ijjc_video_b2fsjx.mp4',
                     isPortrait: true,
                     showText: true,
                     startMoveLogo: false,
@@ -35,10 +37,10 @@
 
                         setTimeout(async () => {
                             if (window.innerHeight > window.innerWidth) {
-                                $refs.ijjcSource.src = '{{asset('/assets/videos/ijjc_video_port.mp4')}}';
+                                $refs.ijjcSource.src = this.ijjcVideo_Portrait;
                             }
                             else  {
-                                $refs.ijjcSource.src = '{{asset('/assets/videos/ijjc_video.mp4')}}';
+                                $refs.ijjcSource.src = this.ijjcVideo_landscape;
                             }
                             $refs.ijjcVideo.load();
                             await $refs.ijjcVideo.play();
@@ -50,9 +52,9 @@
 
                         $watch('isPortrait', async (value) => {
                             if(value){
-                                $refs.ijjcSource.src = '{{asset('/assets/videos/ijjc_video_port.mp4')}}';
+                                $refs.ijjcSource.src = this.ijjcVideo_Portrait;
                             } else {
-                                $refs.ijjcSource.src = '{{asset('/assets/videos/ijjc_video.mp4')}}';  
+                                $refs.ijjcSource.src = this.ijjcVideo_landscape;  
                             }
                             $refs.ijjcVideo.load();
                             await $refs.ijjcVideo.play();
@@ -62,7 +64,7 @@
             x-init="onInit()"  class="relative w-full min-h-screen bg-gray-400 overflow-hidden " >
                 <video x-ref="ijjcVideo" x-on:play="onPlay()" x-on:ended="onEnd" class="absolute top-0 left-0 w-full h-full max-w-none object-fill  " 
                     preload="true" muted playsInline>
-                    <source x-ref="ijjcSource" src="{{asset('/assets/videos/ijjc_video.mp4')}}" type="video/mp4"> 
+                    <source x-ref="ijjcSource" x-bind:src="ijjcVideo_Portrait" type="video/mp4"> 
                 </video>
 
                 <img x-bind:class="{'move-up': startMoveLogo}" 
