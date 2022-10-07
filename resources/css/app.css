@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@keyframes move-up-animtaion {
+    from {
+        
+    }
+    to {
+        height: 150px;
+        width: 150px;
+        top: 0;
+        left: 0;
+        margin-left: 0;
+        opacity: 0.5;
+    }
+  }
+
+.move-up{
+    animation-name: move-up-animtaion;
+    animation-duration: 4s;
+    animation-fill-mode: forwards; 
+}
