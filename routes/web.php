@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', [HomeController::class,'index']);
-Route::get('/', [HomeController::class,'soonIndex']);
+Route::get('/home', [HomeController::class,'index'])->name('index');
+Route::get('/', [HomeController::class,'soonIndex'])->name('soon');

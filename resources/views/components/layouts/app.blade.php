@@ -14,10 +14,22 @@
 
         <!-- Scripts -->
         <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+
+        
     </head>
-    <body>
-        <x-nav-bar />
-        <main>
+    <body x-data="{ darkMode: false }" 
+          x-init="
+          if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          localStorage.setItem('darkMode', JSON.stringify(true));
+          }
+          darkMode = JSON.parse(localStorage.getItem('darkMode'));
+          $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" 
+          x-bind:class="{'dark' : darkMode === true}" class="min-h-screen "
+          x-cloak>
+
+        <x-bars.live-news/>
+        <x-bars.nav />
+        <main class=" bg-white dark:bg-gray-800  text-gray-900 dark:text-white" >
             {{$slot}}
         </main>
         <x-footer/>
