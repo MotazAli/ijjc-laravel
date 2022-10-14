@@ -37,6 +37,36 @@ body {
 
 [x-cloak] { display: none !important; }
 
-.nav-menu_items{
+@layer components{
+
+  .colors-theme{
+    @apply  bg-themes-bgLight dark:bg-themes-bgDark  text-themes-textLight dark:text-themes-textDark;
+  }
+
+  .border-colors-theme{
+    @apply  border-themes-borderLight dark:border-themes-borderDark;
+  }
+
+
+  .nav-menu_items{
     @apply w-full p-2 hover:bg-gray-300 hover:rounded-md
+  }
+
+  .menu-item{
+    @apply flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700
+  }
+
+  .menu-item_icon{
+    @apply 
+      flex-shrink-0 w-6 h-6
+    /* text-gray-500  */
+      transition duration-75
+    /* dark:text-gray-400 */
+    group-hover:text-gray-900 
+    dark:group-hover:text-white
+  }
+
+  .menu-item_text{
+    @apply flex-1 ml-3 whitespace-nowrap font-semibold
+  }
 }
