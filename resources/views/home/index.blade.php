@@ -1,6 +1,6 @@
 <x-layouts.app>
     
-    <div class="px-[10%] pt-20 flex flex-col justify-around  h-full ">
+    <div class="px-[10%] pt-20 pb-10 flex flex-col justify-around  h-full ">
         <img class=" self-center" height="300" width="300" src="{{ asset('assets/images/ijjc.png') }}" alt="ijjc" />
         <h1 class="text-3xl font-extrabold mt-14 self-center">
             Who we are?
@@ -87,8 +87,19 @@
             </ul>
         </p>
 
-        <img class="mt-5  xs:w-[300px] xs:h-[250px]   w-[600px] h-[500px] self-center rounded-md shadow-xl border-1 border-solid p-3"   src="{{ asset('assets/images/home1.jpeg') }}" alt="professors" />
+        <img class="mt-5  xs:w-[300px] xs:h-[250px]   w-[600px] h-[500px] self-center rounded-md shadow-xl border-1 border-solid p-3"   
+             src="{{ asset('assets/images/home1.jpeg') }}" 
+             alt="professors" />
         
+
+        <img class="mt-5  xs:w-[300px] xs:h-[250px]   w-[800px] h-[400px] self-center rounded-md shadow-xl border-1 border-solid p-3"   
+             src="{{ asset('assets/images/home2.jpeg') }}" 
+             alt="professors" />
+
+
+        <img class="mt-5  xs:w-[300px] xs:h-[250px]   w-[700px] h-[450px] self-center rounded-md shadow-xl border-1 border-solid p-3"   
+             src="{{ asset('assets/images/home3.jpeg') }}" 
+             alt="professors" />
 
 
     </div>

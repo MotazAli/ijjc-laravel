@@ -3,7 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
+use App\Http\Livewire\Menu\Instructors;
+use App\Http\Livewire\Menu\Schedule;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::prefix('academies')->group(function(){
+    Route::get('/schedule', Schedule::class)->name('schedule');
+    Route::get('/instructors', Instructors::class)->name('instructors');
+});
+
+
 
 Route::get('/contact', [ContactController::class,'index'])->name('contact');
 Route::get('/login', [AuthController::class,'login'])->name('login');

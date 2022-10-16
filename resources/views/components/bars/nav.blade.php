@@ -2,7 +2,7 @@
 <div  class=" w-full h-[100px] top-0 sticky colors-theme border-b-themes-borderLight dark:border-b-themes-borderDark  border-solid border-b-[1px] pl-5 flex justify-between z-10  " >
     
     <div class=" w-auto flex justify-center self-center ">
-        <img class=" w-24 h-24 self-center mr-2 " 
+        <img class=" w-20 h-20 self-center mr-2 " 
          src="{{ asset('assets/images/ijjc_red_logo.png') }}" 
          alt="ijjc" />
 

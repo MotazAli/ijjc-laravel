@@ -10,6 +10,7 @@
         <link href='https://fonts.googleapis.com/css?family=Lexend Mega' rel='stylesheet'>
 
         <!-- Styles -->
+        @livewireStyles
         @vite('resources/css/app.css')
 
         <!-- Scripts -->
@@ -32,5 +33,6 @@
             {{$slot}}
         </main>
         <x-footer/>
+        @livewireScripts
     </body>
 </html>
