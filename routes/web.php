@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Livewire\Menu\Affiliates;
+use App\Http\Livewire\Menu\Athletes;
 use App\Http\Livewire\Menu\Instructors;
 use App\Http\Livewire\Menu\Schedule;
 use Illuminate\Support\Facades\Route;
@@ -19,8 +21,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('academies')->group(function(){
-    Route::get('/schedule', Schedule::class)->name('schedule');
     Route::get('/instructors', Instructors::class)->name('instructors');
+    Route::get('/athelets', Athletes::class)->name('athelets');
+    Route::get('/affiliates', Affiliates::class)->name('affiliates');
+    Route::get('/schedule', Schedule::class)->name('schedule');
+    
 });
 
 

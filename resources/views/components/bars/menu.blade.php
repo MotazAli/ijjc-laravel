@@ -64,14 +64,14 @@
                       <a href="{{ route('instructors') }}" class="flex items-center p-2 pl-11 w-full text-base font-semibold  rounded-lg transition duration-75 group hover:bg-gray-100  dark:hover:bg-gray-700 ">Instructors</a>
                    </li>
                    <li>
-                      <a href="#" class="flex items-center p-2 pl-11 w-full text-base font-semibold  rounded-lg transition duration-75 group hover:bg-gray-100  dark:hover:bg-gray-700">Athletes</a>
+                      <a href="{{ route('athelets') }}" class="flex items-center p-2 pl-11 w-full text-base font-semibold  rounded-lg transition duration-75 group hover:bg-gray-100  dark:hover:bg-gray-700">Athletes</a>
                    </li>
                    <li>
-                      <a href="{{ route('schedule') }}" class="flex items-center p-2 pl-11 w-full text-base font-semibold  rounded-lg transition duration-75 group hover:bg-gray-100  dark:hover:bg-gray-700">Schedule</a>
+                     <a href="{{ route('affiliates') }}" class="flex items-center p-2 pl-11 w-full text-base font-semibold  rounded-lg transition duration-75 group hover:bg-gray-100  dark:hover:bg-gray-700">Affiliates</a>
                    </li>
                    <li>
-                     <a href="#" class="flex items-center p-2 pl-11 w-full text-base font-semibold  rounded-lg transition duration-75 group hover:bg-gray-100  dark:hover:bg-gray-700">Affiliates</a>
-                  </li>
+                     <a href="{{ route('schedule') }}" class="flex items-center p-2 pl-11 w-full text-base font-semibold  rounded-lg transition duration-75 group hover:bg-gray-100  dark:hover:bg-gray-700">Schedule</a>
+                   </li>
              </ul>
           </li>
 

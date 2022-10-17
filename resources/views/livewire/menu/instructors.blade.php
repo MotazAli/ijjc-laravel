@@ -1,5 +1,9 @@
 <div class=" xs:p-2 p-10" >
 
+    <div class="mb-9 capitalize font-bold text-3xl border-b-4  colors-theme border-b-red-700 dark:border-b-gray-200 ">
+        instructors
+    </div>
+
     @foreach ($instructors as $instractor )
     <div class=" flex flex-col sm:flex-row md:flex-row  sm:items-start md:items-start     border-[0.5px]  p-2 mb-9 border-colors-theme  colors-theme bg-gray-50 " >
         
