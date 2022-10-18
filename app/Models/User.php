@@ -21,6 +21,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'birth_date',
+        'gender',
+        'phone',
+        'image',
+        'is_deleted',
+        'created_by',
+        'updated_by'
     ];
 
     /**
@@ -41,4 +48,39 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    /**
+     * The addresses that user has.
+     */
+    public function addresses(){
+        return $this->hasMany(Address::class);
+    }
+
+
+    /**
+     * The academies that belong to the user.
+     */
+    public function academies()
+    {
+        return $this->belongsToMany(Academy::class, 'user_academies');
+    }
+
+
+    /**
+     * The belts that belong to the user.
+     */
+    public function belts()
+    {
+        return $this->belongsToMany(Belt::class, 'user_belts');
+    }
+
+    /**
+     * The roles that belong to the user.
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'user_roles');
+    }
+
 }

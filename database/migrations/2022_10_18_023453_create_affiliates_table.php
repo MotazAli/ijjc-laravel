@@ -13,20 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('affiliates', function (Blueprint $table) {
             $table->id()->primary();
-            $table->uuid('uuid')->index();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->date('birth_date')->nullable(true);
-            $table->string('gender')->nullable(true);
-            $table->string('phone')->nullable(true);
-            $table->string('image')->nullable(true);
+            $table->unsignedBigInteger('parent_academy_id');
+            $table->unsignedBigInteger('affiliate_academy_id');
             $table->boolean('is_active')->default(0);
             $table->boolean('is_deleted')->default(0);
-            $table->rememberToken();
+            $table->foreign('parent_academy_id')->references('id')->on('academies')->onDelete('cascade');
+            $table->foreign('affiliate_academy_id')->references('id')->on('academies')->onDelete('cascade');
+            $table->unsignedBigInteger('created_by');
+            $table->unsignedBigInteger('updated_by');
             $table->timestamps();
         });
     }
@@ -38,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('affiliates');
     }
 };
