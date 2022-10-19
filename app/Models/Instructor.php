@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserBelt extends Model
+class Instructor extends Model
 {
     use HasFactory;
 
@@ -16,12 +16,8 @@ class UserBelt extends Model
      */
     protected $fillable = [
         'user_id',
-        'academy_id',
-        'belt_id',
-        'start_at',
-        'dan',
-        'stripe',
-        'is_current',
+        'academy_class_id',
+        'is_active',
         'is_deleted',
         'created_by',
         'updated_by'

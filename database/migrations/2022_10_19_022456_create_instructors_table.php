@@ -13,19 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_belts', function (Blueprint $table) {
+        Schema::create('instructors', function (Blueprint $table) {
             $table->id()->primary();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('academy_id');
-            $table->unsignedBigInteger('belt_id');
-            $table->date('start_at')->nullable(true);
-            $table->integer('dan')->default(0);
-            $table->integer('stripe')->default(0);
-            $table->boolean('is_current')->default(0);
+            $table->unsignedBigInteger('academy_class_id');
+            $table->boolean('is_active')->default(0);
             $table->boolean('is_deleted')->default(0);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('academy_id')->references('id')->on('academies')->onDelete('cascade');
-            $table->foreign('belt_id')->references('id')->on('belts')->onDelete('cascade');
+            $table->foreign('academy_class_id')->references('id')->on('academy_classes')->onDelete('cascade');
             $table->unsignedBigInteger('created_by');
             $table->unsignedBigInteger('updated_by');
             $table->timestamps();
@@ -39,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_belts');
+        Schema::dropIfExists('instructors');
     }
 };

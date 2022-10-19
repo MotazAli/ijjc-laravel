@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserBelt extends Model
+class AcademyEvent extends Model
 {
     use HasFactory;
+
 
     /**
      * The attributes that are mass assignable.
@@ -15,13 +16,14 @@ class UserBelt extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id',
-        'academy_id',
-        'belt_id',
+        'title',
+        'description',
         'start_at',
-        'dan',
-        'stripe',
-        'is_current',
+        'end_at',
+        'start_time_at',
+        'end_time_at',
+        'image',
+        'is_active',
         'is_deleted',
         'created_by',
         'updated_by'

@@ -83,4 +83,13 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, 'user_roles');
     }
 
+
+    /**
+     * The academyClasses that belong to the user instructor.
+     */
+    public function instructorAcademyClasses()
+    {
+        return $this->belongsToMany(AcademyClass::class, 'instructors');
+    }
+
 }
