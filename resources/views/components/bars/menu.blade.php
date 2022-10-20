@@ -29,10 +29,10 @@
          </a>
          
 
-         @if ($userLogged)
-            <a href="https://flowbite.com/" class="flex items-center pl-2.5 mb-5">
+         @if (Auth::user())
+            <a href="#" class="flex items-center pl-2.5 mb-5">
                <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-7" alt="Flowbite Logo" />
-               <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+               <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white capitalize">{{ Auth::user()->name }}</span>
             </a>
          @endif
       
@@ -47,7 +47,20 @@
                </svg>
             </x-buttons.menu-item>
           
-          
+            @if (Auth::user())
+            {{-- <li>
+               <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <svg aria-hidden="true" class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
+                  <span class="ml-3 font-semibold">Dashboard</span>
+               </a>
+            </li> --}}
+
+            
+               <x-buttons.menu-item   route="#" text='Dashboard'>
+                  <svg aria-hidden="true" class="w-6 h-6 transition duration-75 menu-item_icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
+               </x-buttons.menu-item>
+            
+          @endif
           
           <li>
              <button x-on:click="dropdownExample = !dropdownExample" type="button" class="flex items-center p-2 w-full text-base font-normal  rounded-lg transition duration-75 group hover:bg-gray-100  dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
@@ -113,35 +126,34 @@
             </x-buttons.menu-item>
           
 
-          @if ($isAdmin)
-            {{-- <li>
-               <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <svg aria-hidden="true" class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
-                  <span class="ml-3 font-semibold">Dashboard</span>
-               </a>
-            </li> --}}
+          
 
-            
-               <x-buttons.menu-item   route="#" text='Dashboard'>
-                  <svg aria-hidden="true" class="w-6 h-6 transition duration-75 menu-item_icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
-               </x-buttons.menu-item>
-            
-          @endif
-
-          @if ($userLogged)
+          @if (Auth::user())
             <li>
                <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                  <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path><path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
+                  <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 menu-item_icon transition duration-75" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path><path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path></svg>
                   <span class="flex-1 ml-3 whitespace-nowrap font-semibold">Inbox</span>
                   <span class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">3</span>
                </a>
             </li>
 
 
+            <li>
+               <form class="w-full"  
+                     action="{{ route('auth.logout') }}"
+                     method="POST">
+                     @csrf
+                  <button type="submit"  class=" menu-item">
+                     <svg aria-hidden="true" class=" rotate-180 menu-item_icon " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path></svg>
+                     <span class="menu-item_text">Log Out</span>
+                  </button>
+               </form>
+               
+            </li>
             
-               <x-buttons.menu-item   route="{{ route('auth.logout') }}" text='Logout'>
+               {{-- <x-buttons.menu-item   route="{{ route('auth.logout') }}" text='Logout'>
                   <svg aria-hidden="true" class=" rotate-180 menu-item_icon " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path></svg>
-               </x-buttons.menu-item>
+               </x-buttons.menu-item> --}}
             
           @else
             {{-- <li>
@@ -152,7 +164,7 @@
             </li> --}}
 
             
-               <x-buttons.menu-item   route="{{ route('auth.login') }}" text='Log In'>
+               <x-buttons.menu-item   route="{{ route('auth.index') }}" text='Log In'>
                   <svg aria-hidden="true" class="menu-item_icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path></svg>
                </x-buttons.menu-item>
             

@@ -3,6 +3,10 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+
+use App\Interfaces\Services\AuthServiceInterface;
+use App\Interfaces\Services\UsersServiceInterface;
+use App\Services\AuthService;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -27,4 +31,21 @@ class AuthServiceProvider extends ServiceProvider
 
         //
     }
+
+
+
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+        $this->app->singleton(AuthServiceInterface::class, function ($app) {
+            return new AuthService($app->make(UsersServiceInterface::class));
+        });
+    }
+
+
 }
