@@ -30,10 +30,13 @@ Route::prefix('academies')->group(function(){
 
 
 
+Route::get('/login', [AuthController::class,'index'])->name('auth.index');
+Route::post('/login', [AuthController::class,'login'])->name('auth.login');
+Route::get('/signup', [AuthController::class,'signup'])->name('auth.signup');
+Route::post('/signup', [AuthController::class,'store'])->name('auth.store');
+Route::post('/logout', [AuthController::class,'logout'])->name('auth.logout');
+Route::get('/login/forgot', [AuthController::class,'forgotPassword'])->name('auth.forgot');
+
 Route::get('/contact', [ContactController::class,'index'])->name('contact');
-Route::get('/login', [AuthController::class,'login'])->name('login');
-Route::get('/signup', [AuthController::class,'signup'])->name('signup');
-Route::post('/logout', [AuthController::class,'logout'])->name('logout');
-Route::get('/login/forgot', [AuthController::class,'forgotPassword'])->name('forgot');
-Route::get('/home', [HomeController::class,'index'])->name('index');
+Route::get('/home', [HomeController::class,'index'])->name('home.index');
 Route::get('/', [HomeController::class,'soonIndex'])->name('soon');

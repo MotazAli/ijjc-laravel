@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('user_academies', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('academy_id');
             $table->date('start_at')->nullable(true);

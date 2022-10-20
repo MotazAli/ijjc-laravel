@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('user_belts', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('academy_id');
             $table->unsignedBigInteger('belt_id');

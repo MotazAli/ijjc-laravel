@@ -41,7 +41,7 @@
         <ul class="space-y-2 ">
 
          
-            <x-buttons.menu-item   route="{{ route('index') }}" text='Home'>
+            <x-buttons.menu-item   route="{{ route('home.index') }}" text='Home'>
                <svg aria-hidden="true" class="menu-item_icon" fill="currentColor" enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <path d="M30.854,16.548C30.523,17.43,29.703,18,28.764,18H28v11c0,0.552-0.448,1-1,1h-6v-7c0-2.757-2.243-5-5-5  s-5,2.243-5,5v7H5c-0.552,0-1-0.448-1-1V18H3.235c-0.939,0-1.759-0.569-2.09-1.451c-0.331-0.882-0.088-1.852,0.62-2.47L13.444,3.019  c1.434-1.357,3.679-1.357,5.112,0l11.707,11.086C30.941,14.696,31.185,15.666,30.854,16.548z" id="XMLID_219_"/>
                </svg>
@@ -139,7 +139,7 @@
 
 
             
-               <x-buttons.menu-item   route="{{ route('logout') }}" text='Logout'>
+               <x-buttons.menu-item   route="{{ route('auth.logout') }}" text='Logout'>
                   <svg aria-hidden="true" class=" rotate-180 menu-item_icon " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path></svg>
                </x-buttons.menu-item>
             
@@ -152,7 +152,7 @@
             </li> --}}
 
             
-               <x-buttons.menu-item   route="{{ route('login') }}" text='Log In'>
+               <x-buttons.menu-item   route="{{ route('auth.login') }}" text='Log In'>
                   <svg aria-hidden="true" class="menu-item_icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path></svg>
                </x-buttons.menu-item>
             

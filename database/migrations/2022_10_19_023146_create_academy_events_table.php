@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('academy_events', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->string('title');
             $table->string('description');
             $table->string('image');

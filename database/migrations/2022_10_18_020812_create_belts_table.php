@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('belts', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->string('name');
             $table->unsignedInteger('priority');
             $table->boolean('is_deleted')->default(0);

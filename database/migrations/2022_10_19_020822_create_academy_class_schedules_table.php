@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('academy_class_schedules', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->unsignedBigInteger('academy_class_id');
             $table->string('day_name');
             $table->string('start_at');

@@ -1,0 +1,34 @@
+////run laravel project////
+php artisan serve
+
+////create new model class with migration class////
+php artisan make:model [model name] -m
+
+e.g " php artisan make:model Post -m " this will create a Post model class and posts migration
+
+
+////create migration class ////
+php artisan make:migration [create_{migration table name}_table]
+
+e.g " php artisan make:migration create_post_table " this will create a posts migration table
+
+////run migrations ////
+php artisan migrate
+
+
+//// create DB seed factory ////
+php artisan make:factory [factory name] PostFactory
+
+e.g " php artisan make:factory PostFactory " this will create PostFactory class that can defind all your seeds columns on it inside the definition funcation
+
+
+//// run seeds ////
+php artisan db:seed 
+
+
+//// create a Form Request//// that used for validate filds and parameter
+php artisan make:request [request class name]
+
+e.g " php artisan make:request LoginUserRequest " this will create LoginUserRequest class that can add validation for parameters
+
+

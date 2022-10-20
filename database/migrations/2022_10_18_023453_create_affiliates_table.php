@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('affiliates', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->unsignedBigInteger('parent_academy_id');
             $table->unsignedBigInteger('affiliate_academy_id');
             $table->boolean('is_active')->default(0);

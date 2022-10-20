@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('academy_classes', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->string('name');
             $table->string('duration');
             $table->float('price');

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('instructors', function (Blueprint $table) {
-            $table->id()->primary();
+            $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('academy_class_id');
             $table->boolean('is_active')->default(0);
