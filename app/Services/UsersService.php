@@ -6,8 +6,9 @@ use App\Interfaces\Repositories\UsersRepositoryInterface;
 use App\Interfaces\Services\UsersServiceInterface;
 use App\Models\DTOs\UserDTO;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class UsersService implements UsersServiceInterface{
     
@@ -31,5 +32,16 @@ class UsersService implements UsersServiceInterface{
     public function getUser(string $email): User {
         return $this->usersRepository->findUserBy($email);
         // return User::where('email',$email)->first();
+    }
+
+
+    public function getAllUsers():Collection{
+        return $this->usersRepository->findAllUsers();
+    }
+    public function getAllUsersAscd(): Builder{
+        return $this->usersRepository->findAllUsersAscd();
+    }
+    public function getAllUsersAscdPagination(int $rowsPerPage): LengthAwarePaginator{
+        return $this->usersRepository->findAllUsersAscdPagination($rowsPerPage);
     }
 }

@@ -1,6 +1,12 @@
 ////run laravel project////
 php artisan serve
 
+
+////create livewire component////
+php artisan make:livewire [component name]
+
+e.g " php artisan make:livewire dashboard.user "  that will create folder livewire contains another folder named dashboard inside it will have user component 
+
 ////create new model class with migration class////
 php artisan make:model [model name] -m
 
