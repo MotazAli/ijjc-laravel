@@ -8,7 +8,12 @@ use Livewire\Component;
 class Edit extends Component
 {
 
-    private User $user;
+    public User $user;
+ 
+    protected $rules = [
+        'user.name' => 'required|string',
+        'user.email' => 'required|string',
+    ];
 
     public function mount(User $user){
         $this->user = $user;
@@ -16,8 +21,6 @@ class Edit extends Component
     
     public function render()
     {
-        return view('livewire.dashboard.users.edit',[
-            'user' => $this->user
-        ]);
+        return view('livewire.dashboard.users.edit')->layoutData(['title'=> $this->user->name]);
     }
 }

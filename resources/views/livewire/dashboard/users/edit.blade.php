@@ -1,21 +1,21 @@
 
-<div class="p-5 sm:p-10 md:p-10  " >
+<div class="p-5 sm:p-10 md:p-10   " >
 
     <div class="mb-9 pb-4 capitalize font-bold text-3xl border-b-4  colors-theme border-b-red-700 dark:border-b-gray-200 ">
         {{ $user->name }}
     </div>
 
 
-    <div class=" w-full h-screen flex flex-row ">
-        <img class=" w-32 h-32 " src='https://res.cloudinary.com/dfw7q7qe2/image/upload/v1665894292/ijjc/05f46fba-3528-40d1-b642-2e04238369ae_amptpm.jpg' alt="name" />
+    <div class=" w-full h-screen flex flex-row border border-colors-theme colors-theme bg-gray-50 p-5 sm:space-x-20 md:space-x-20 lg:space-x-20">
+        <img class=" w-52 h-72 " src='https://res.cloudinary.com/dfw7q7qe2/image/upload/v1665894292/ijjc/05f46fba-3528-40d1-b642-2e04238369ae_amptpm.jpg' alt="name" />
         <div class="flex flex-col flex-grow">
             <div class=' px-3 mb-6'>
-                <label class=' uppercase block tracking-wide text-gray-700 text-xs font-bold mb-2' >name</label>
-                <input class='appearance-none  w-[50%] bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'  required>
+                <label class=' uppercase block tracking-wide text-xs font-bold mb-2' >name</label>
+                <input wire:model="user.name" class='appearance-none w-full sm:w-[70%] md:w-[70%] lg:w-[70%] bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text'  required>
             </div>
             <div class=' px-3 mb-6'>
-                <label class=' uppercase block tracking-wide text-gray-700 text-xs font-bold mb-2'>email</label>
-                <input class='appearance-none w-[50%] bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='email'  required>
+                <label class=' uppercase block tracking-wide  text-xs font-bold mb-2'>email</label>
+                <input wire:model="user.email" class='appearance-none w-full sm:w-[70%] md:w-[70%] lg:w-[70%] bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='email'  required>
             </div>
         </div>
     </div>

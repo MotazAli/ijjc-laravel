@@ -51,32 +51,27 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
         Route::get('/$schedule', Schedule::class)->name('dashboard.schedule');  
     });
     
-
     Route::get('/affiliates', Affiliates::class)->name('affiliates');
-    
 });
 
 
 
 
-// Route::prefix('')->
+Route::prefix('/')->group(function(){
+    Route::get('login', Login::class)->name('auth.index');
+    Route::post('login', [AuthController::class,'login'])->name('auth.login');
+    Route::get('signup', [AuthController::class,'signup'])->name('auth.signup');
+    Route::post('signup', [AuthController::class,'store'])->name('auth.store');
+    Route::post('logout', [AuthController::class,'logout'])->name('auth.logout');
+    Route::get('login/forgot', [AuthController::class,'forgotPassword'])->name('auth.forgot');
+    Route::get('contact', [ContactController::class,'index'])->name('contact');
+    Route::any('404', function() { return view('errors.404'); })->name('errors.404');
+    Route::get('', [HomeController::class,'index'])->name('home.index');
+    // Route::get('/', [HomeController::class,'soonIndex'])->name('soon');
+});
 
-Route::get('/login', Login::class)->name('auth.index');
-Route::post('/login', [AuthController::class,'login'])->name('auth.login');
-Route::get('/signup', [AuthController::class,'signup'])->name('auth.signup');
-Route::post('/signup', [AuthController::class,'store'])->name('auth.store');
-Route::post('/logout', [AuthController::class,'logout'])->name('auth.logout');
-Route::get('/login/forgot', [AuthController::class,'forgotPassword'])->name('auth.forgot');
-
-Route::get('/contact', [ContactController::class,'index'])->name('contact');
 
 
-Route::any('/404', function() {
-    return view('errors.404');
-})->name('errors.404');
-
-Route::get('/', [HomeController::class,'index'])->name('home.index');
-// Route::get('/', [HomeController::class,'soonIndex'])->name('soon');
 
 
 
