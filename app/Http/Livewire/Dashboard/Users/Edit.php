@@ -21,6 +21,6 @@ class Edit extends Component
     
     public function render()
     {
-        return view('livewire.dashboard.users.edit')->layoutData(['title'=> $this->user->name]);
+        return view('livewire.dashboard.users.edit');//->layoutData(['title'=> $this->user->name]);
     }
 }

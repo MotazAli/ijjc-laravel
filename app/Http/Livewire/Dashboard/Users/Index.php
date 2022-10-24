@@ -12,7 +12,7 @@ class Index extends Component
 {
     use WithPagination;
         
-    private int $rowsPerPage = 6;
+    //private int $rowsPerPage = 6;
 
     private LengthAwarePaginator $users;
     //private  $users;
@@ -23,11 +23,16 @@ class Index extends Component
     //     $this->users = new LengthAwarePaginator(null,0,1);
     // }
 
-    public function mount(UsersServiceInterface $usersservice){
+    // public function mount(UsersServiceInterface $usersservice){
         
-        $this->users =  $usersservice->getAllUsersAscdPagination($this->rowsPerPage); //User::orderBy('created_at','desc')->paginate($this->rowsPerPage);
-        //dd(get_class($this->users));
-        //dd($this->users);
+    //     $this->users =  $usersservice->getAllUsersAscdPagination($this->rowsPerPage); //User::orderBy('created_at','desc')->paginate($this->rowsPerPage);
+    //     //dd(get_class($this->users));
+    //     //dd($this->users);
+    // }
+
+    public function mount(LengthAwarePaginator $users){
+        
+        $this->users =  $users;
     }
 
     public function userClickHandler(User $user){

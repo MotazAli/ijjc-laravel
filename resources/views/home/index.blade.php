@@ -1,4 +1,4 @@
-<x-layouts.app>
+<x-layouts.app title="Home">
     
     <div class="px-[10%] pt-20 pb-10 flex flex-col justify-around  h-full ">
         <img class=" self-center" height="300" width="300" src="{{ asset('assets/images/ijjc.png') }}" alt="ijjc" />

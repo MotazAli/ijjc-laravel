@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UsersController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Dashboard\Index;
 use App\Http\Livewire\Dashboard\Users\Edit as UserEdit;
@@ -37,8 +38,8 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
     Route::get('/', Index::class)->name('dashboard.index');
 
     Route::prefix('/users')->group(function(){
-        Route::get('/', UsersIndex::class)->name('dashboard.users.index');
-        Route::get('/{user}', UserEdit::class)->name('dashboard.users.edit');  
+        Route::get('/', [UsersController::class,'index'])->name('dashboard.users.index');
+        Route::get('/{user}', [UsersController::class,'edit'])->name('dashboard.users.edit');  
     });
 
     Route::prefix('/academies')->group(function(){
@@ -58,7 +59,7 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
 
 
 Route::prefix('/')->group(function(){
-    Route::get('login', Login::class)->name('auth.index');
+    Route::get('login', [AuthController::class,'index'])->name('auth.index');
     Route::post('login', [AuthController::class,'login'])->name('auth.login');
     Route::get('signup', [AuthController::class,'signup'])->name('auth.signup');
     Route::post('signup', [AuthController::class,'store'])->name('auth.store');
