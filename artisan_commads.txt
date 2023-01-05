@@ -2,10 +2,17 @@
 php artisan serve
 
 
+////create controller ////
+php artisan make:controller [controller class name]
+
+e.g " php artisan make:controller UsersController" that will create empty class controller
+e.g " php artisan make:controller UsersController --resource " that will create class controller with (index, create, store, edit, update and delete) methods
+
+
 ////create livewire component////
 php artisan make:livewire [component name]
 
-e.g " php artisan make:livewire dashboard.user "  that will create folder livewire contains another folder named dashboard inside it will have user component 
+e.g " php artisan make:livewire dashboard.user "  that will create folder livewire contains another folder named dashboard inside it will have user component
 
 ////create new model class with migration class////
 php artisan make:model [model name] -m
@@ -29,7 +36,7 @@ e.g " php artisan make:factory PostFactory " this will create PostFactory class 
 
 
 //// run seeds ////
-php artisan db:seed 
+php artisan db:seed
 
 
 //// create a Form Request//// that used for validate filds and parameter

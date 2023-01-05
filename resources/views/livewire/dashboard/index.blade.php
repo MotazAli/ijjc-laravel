@@ -6,12 +6,12 @@
     </div>
 
     <div class=" mt-20 grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 justify-between justify-items-center  " >
-        
+
         {{-- @foreach ( range(0,9) as $ele )
         <a class="flex flex-col h-40 w-40  border-2 items-center  mb-9 border-colors-theme  colors-theme rounded-sm hover:shadow-lg cursor-pointer">
             <img class=" h-[80%] w-full rounded-t-sm   " src='https://res.cloudinary.com/dfw7q7qe2/image/upload/v1665894292/ijjc/05f46fba-3528-40d1-b642-2e04238369ae_amptpm.jpg' alt="name" />
             <label class="capitalize text-xl font-semibold" >Profile</label>
-        </a>  
+        </a>
         @endforeach --}}
 
 
@@ -21,10 +21,10 @@
             </svg>
             {{-- <img class=" h-[80%] w-full rounded-t-sm   " src='https://res.cloudinary.com/dfw7q7qe2/image/upload/v1665894292/ijjc/05f46fba-3528-40d1-b642-2e04238369ae_amptpm.jpg' alt="name" /> --}}
             <span class="capitalize text-xl font-semibold" >Users</span>
-        </a> 
-        
-        
-        <a class="p-3 flex flex-col h-32 w-32  border-2 items-center  mb-9 border-colors-theme  colors-theme hover:shadow-lg cursor-pointer rounded-lg">
+        </a>
+
+
+        <a href="{{ route('dashboard.academies.index') }}" class="p-3 flex flex-col h-32 w-32  border-2 items-center  mb-9 border-colors-theme  colors-theme hover:shadow-lg cursor-pointer rounded-lg">
             <svg id="Layer_1" class="h-[80%] w-full menu-item_icon" fill="currentColor" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="XMLID_896_"><rect height="444.8" id="XMLID_929_" width="49" x="16.5" y="46.3"/><rect height="445.3" id="XMLID_928_" width="49" x="446.5" y="45.7"/><path d="M68.3,349v142h373V349H68.3z M125.8,486.8h-47v-105h47V486.8z M186.8,486.8h-47v-105h47V486.8z    M247.8,486.8h-47v-105h47V486.8z M308.8,486.8h-47v-105h47V486.8z M369.8,486.8h-47v-105h47V486.8z M430.8,486.8h-47v-105h47   V486.8z" id="XMLID_920_"/><path d="M68,74.1v270h373v-270H68z M430.5,336.5h-352V81.7h352V336.5z" id="XMLID_917_"/><g id="XMLID_906_"><rect height="260.1" id="XMLID_916_" width="4.1" x="250.7" y="78.1"/><rect height="260.1" id="XMLID_915_" width="4.1" x="188.7" y="78.1"/><rect height="260.1" id="XMLID_914_" width="4.1" x="126.7" y="78.1"/><rect height="260.1" id="XMLID_913_" width="4.1" x="374.7" y="78.1"/><rect height="260.1" id="XMLID_912_" width="4.1" x="312.7" y="78.1"/><rect height="4.1" id="XMLID_911_" width="365" x="72.3" y="210.2"/><rect height="4.1" id="XMLID_910_" width="365" x="72.3" y="298.2"/><rect height="4.1" id="XMLID_909_" width="365" x="72.3" y="254.2"/><rect height="4.1" id="XMLID_908_" width="365" x="72.3" y="122.2"/><rect height="4.1" id="XMLID_907_" width="365" x="72.3" y="166.2"/></g><g id="XMLID_903_"><rect height="10" id="XMLID_905_" width="49" x="16.5" y="33"/><rect height="10" id="XMLID_904_" width="43" x="19.5" y="21"/></g><g id="XMLID_900_"><rect height="10" id="XMLID_902_" width="49" x="446.5" y="33"/><rect height="10" id="XMLID_901_" width="43" x="449.5" y="21"/></g><path d="M68,23.1V73h373V23.1H68z M430.8,68.7H78.5V31h352.3V68.7z" id="XMLID_897_"/></g>
             </svg>
             <span class="capitalize text-xl font-semibold" >Academies</span>
@@ -81,13 +81,13 @@
             </svg>
             <span class="capitalize text-xl font-semibold" >Events</span>
         </a>
-        
-           
-        
-        
-          
+
+
+
+
+
     </div>
 
-    
+
 
 </div>

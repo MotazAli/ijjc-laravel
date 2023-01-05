@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AcademiesController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
@@ -31,7 +32,7 @@ Route::prefix('academies')->group(function(){
     Route::get('/athelets', Athletes::class)->name('athelets');
     Route::get('/affiliates', Affiliates::class)->name('affiliates');
     Route::get('/schedule', Schedule::class)->name('schedule');
-    
+
 });
 
 Route::middleware(['auth'])->prefix('dashboard')->group(function(){
@@ -39,19 +40,19 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
 
     Route::prefix('/users')->group(function(){
         Route::get('/', [UsersController::class,'index'])->name('dashboard.users.index');
-        Route::get('/{user}', [UsersController::class,'edit'])->name('dashboard.users.edit');  
+        Route::get('/{user}', [UsersController::class,'edit'])->name('dashboard.users.edit');
     });
 
     Route::prefix('/academies')->group(function(){
-        Route::get('/', Index::class)->name('dashboard.academies');
-        Route::get('/$academy', Schedule::class)->name('dashboard.academy');  
+        Route::get('/', [AcademiesController::class,'index'])->name('dashboard.academies.index');
+        Route::get('/$academy', Schedule::class)->name('dashboard.academy');
     });
 
     Route::prefix('/schedules')->group(function(){
         Route::get('/', Index::class)->name('dashboard.schedules');
-        Route::get('/$schedule', Schedule::class)->name('dashboard.schedule');  
+        Route::get('/$schedule', Schedule::class)->name('dashboard.schedule');
     });
-    
+
     Route::get('/affiliates', Affiliates::class)->name('affiliates');
 });
 

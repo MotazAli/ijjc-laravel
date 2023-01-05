@@ -15,6 +15,7 @@ class Academy extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'name',
         'country',
         'city',
         'country_code',

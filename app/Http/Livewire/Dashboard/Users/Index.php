@@ -11,7 +11,7 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
-        
+
     //private int $rowsPerPage = 6;
 
     private LengthAwarePaginator $users;
@@ -24,19 +24,19 @@ class Index extends Component
     // }
 
     // public function mount(UsersServiceInterface $usersservice){
-        
+
     //     $this->users =  $usersservice->getAllUsersAscdPagination($this->rowsPerPage); //User::orderBy('created_at','desc')->paginate($this->rowsPerPage);
     //     //dd(get_class($this->users));
     //     //dd($this->users);
     // }
 
     public function mount(LengthAwarePaginator $users){
-        
+
         $this->users =  $users;
     }
 
-    public function userClickHandler(User $user){
-        if($user)
+    public function userClickHandler(User $user = null){
+        if( is_null($user))
         {
             //dd($user);
             redirect()->route('dashboard.users.edit',[$user]);
