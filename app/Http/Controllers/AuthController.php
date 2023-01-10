@@ -23,7 +23,7 @@ class AuthController extends Controller
 
     public function login(LoginUserRequest $request){
 
-        
+        //dd($request->all());
         $request->Validated($request->all());
         return $this->authService->login(
             $request->session(),
@@ -82,7 +82,7 @@ class AuthController extends Controller
         $request->session()->regenerate();
         Auth::login($user);
         return redirect(route('home.index'));
-    } 
+    }
 
 
 }

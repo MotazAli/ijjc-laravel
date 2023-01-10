@@ -26,6 +26,10 @@ class AcademyDTO
 
     public static function convertDataToDto(array $data): AcademyDTO
     {
+        $is_active = $data['is_active'] ?? null;
+        $is_active = $is_active ==="on";
+        $is_shown = $data['is_shown'] ?? null;
+        $is_shown = $is_shown ==="on";
         return new AcademyDTO(
             $data['name'],
             $data['country'],
@@ -35,9 +39,9 @@ class AcademyDTO
             $data['owner'],
             $data['phone'],
             $data['image'],
-            $data['is_active'],
-            $data['is_shown'],
-            $data['is_deleted'],
+            $is_active,
+            $is_shown,
+            false,
         );
     }
 

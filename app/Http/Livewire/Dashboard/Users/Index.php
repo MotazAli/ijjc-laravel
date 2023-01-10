@@ -4,6 +4,9 @@ namespace App\Http\Livewire\Dashboard\Users;
 
 use App\Interfaces\Services\UsersServiceInterface;
 use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -35,8 +38,8 @@ class Index extends Component
         $this->users =  $users;
     }
 
-    public function userClickHandler(User $user = null){
-        if( is_null($user))
+    public function userClickHandler(User $user){
+        if( $user)
         {
             //dd($user);
             redirect()->route('dashboard.users.edit',[$user]);
@@ -44,7 +47,7 @@ class Index extends Component
     }
 
 
-    public function render()
+    public function render(): Factory|View|Application
     {
         return view('livewire.dashboard.users.index',[
             'users' => $this->users

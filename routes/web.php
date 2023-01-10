@@ -45,7 +45,9 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
 
     Route::prefix('/academies')->group(function(){
         Route::get('/', [AcademiesController::class,'index'])->name('dashboard.academies.index');
+        Route::get('/new', [AcademiesController::class,'create'])->name('dashboard.academies.create');
         Route::get('/$academy', Schedule::class)->name('dashboard.academy');
+        Route::post('/', [AcademiesController::class,'store'])->name('dashboard.academies.store');
     });
 
     Route::prefix('/schedules')->group(function(){

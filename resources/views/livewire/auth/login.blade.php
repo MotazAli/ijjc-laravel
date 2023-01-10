@@ -1,9 +1,9 @@
 
-    
+
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         {{-- <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
             <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo">
-            Flowbite    
+            Flowbite
         </a> --}}
         <div class="w-full colors-theme bg-gray-200  rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0  dark:border-themes-borderDark">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -23,9 +23,9 @@
                     </div>
                 @endif
 
-                <form class="space-y-4 md:space-y-6" 
-                      wire:submit="$emit('showLoading')"
-                      action="{{ route('auth.login') }}" 
+                <form class="space-y-4 md:space-y-6"
+{{--                      wire:submit="$emit('showLoading')"--}}
+                      action="{{ route('auth.login') }}"
                       method="POST">
                       @csrf
                     <div>
@@ -48,8 +48,10 @@
                         <a href="{{  route('auth.forgot') }}" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
                     </div>
 
-                    <livewire:ui.button text="Sign in"/>
-                    
+                    <x-ui.button text="Sign in"/>
+
+{{--                    <livewire:ui.button text="Sign in"/>--}}
+
 
                     {{-- <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         <x-ui.spinner class="w-6 h-6"/>

@@ -4,7 +4,7 @@
     <div class=" flex flex-row justify-between pb-4 mb-9  border-b-4  colors-theme border-b-red-700 dark:border-b-gray-200 ">
         <div class="capitalize font-bold text-3xl">Academies</div>
         <div>
-            <a class="cursor-pointer p-2 border bg-green-500 hover:bg-green-700 rounded-lg text-white font-semibold "> New Academy </a>
+            <a href="{{route('dashboard.academies.create')}}" class="cursor-pointer p-2 border bg-green-500 hover:bg-green-700 rounded-lg text-white font-semibold "> New Academy </a>
         </div>
 
     </div>

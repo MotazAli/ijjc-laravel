@@ -8,6 +8,7 @@ use App\Models\Academy;
 use App\Models\DTOs\AcademyDTO;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class AcademiesService implements AcademiesServiceInterface
@@ -16,7 +17,7 @@ class AcademiesService implements AcademiesServiceInterface
     public function __construct(protected AcademiesRepositoryInterface $academiesRepository )
     { }
 
-    public function createAcademy(array $data): Academy
+    public function createAcademy(array $data):Academy
     {
         $academyDTO = AcademyDTO::convertDataToDto($data);
         return $this->academiesRepository->insertAcademy($academyDTO);

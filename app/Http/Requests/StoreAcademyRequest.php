@@ -2,11 +2,10 @@
 
 namespace App\Http\Requests;
 
-
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
 
-class StoreUserRequest extends FormRequest
+class StoreAcademyRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,8 +26,8 @@ class StoreUserRequest extends FormRequest
     {
         return [
             'name' =>['required','string'],
-            'email' => ['required','string','unique:users'],
-            'password' => ['required',Password::defaults()]
+            'owner' => ['required','string'],
+            'country' => ['required'],
         ];
     }
 }

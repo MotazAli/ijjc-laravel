@@ -21,15 +21,15 @@
         <!-- Scripts -->
         <script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
         <script src="https://kit.fontawesome.com/0ad76f9f0e.js" crossorigin="anonymous"></script>
-        
+
     </head>
-    <body x-data="{ darkMode: false}" 
+    <body x-data="{ darkMode: false}"
           x-init="
           if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
           localStorage.setItem('darkMode', JSON.stringify(true));
           }
           darkMode = JSON.parse(localStorage.getItem('darkMode'));
-          $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" 
+          $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
           x-bind:class="{'dark' : darkMode === true}"
           x-cloak>
 

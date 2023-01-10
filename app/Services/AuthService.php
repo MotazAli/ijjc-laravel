@@ -21,14 +21,16 @@ class AuthService implements AuthServiceInterface {
             return back()->withErrors('invalid credentials');
         }
 
+
         $remember = $data['remember'] ?? null;
-        $remember = ($remember ==="on")? true : false;
+        $remember = $remember ==="on";
+//        dd($remember);
         $user = $this->usersService->getUser($data['email']);
         $session->regenerate();
         Auth::login($user, $remember);
         return redirect(route('home.index'));
     }
-    
+
     public function logout(Session $session):RedirectResponse{
         Auth::logout();
         $session->invalidate();
