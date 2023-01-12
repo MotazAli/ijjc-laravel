@@ -23,7 +23,9 @@
                     </div>
                 @endif
 
-                <form class="space-y-4 md:space-y-6"
+                <form x-data="{isSubmitted :false}"
+                      x-on:submit="isSubmitted= true"
+                      class="space-y-4 md:space-y-6"
 {{--                      wire:submit="$emit('showLoading')"--}}
                       action="{{ route('auth.login') }}"
                       method="POST">

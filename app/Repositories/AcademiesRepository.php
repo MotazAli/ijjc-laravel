@@ -18,9 +18,10 @@ class AcademiesRepository implements AcademiesRepositoryInterface
     public function insertAcademy(AcademyDTO $academyDTO): Academy
     {
         return Academy::create([
+            'name' => $academyDTO->name,
             'country' => $academyDTO->country,
             'city' => $academyDTO->city,
-            'country_code' => $academyDTO->country_code,
+            'country_code' => $academyDTO->countryCode,
             'address' => $academyDTO->address,
             'owner' => $academyDTO->owner,
             'phone' => $academyDTO->phone,
@@ -28,6 +29,8 @@ class AcademiesRepository implements AcademiesRepositoryInterface
             'is_active' => $academyDTO->is_active,
             'is_shown' => $academyDTO->is_shown,
             'is_deleted' => $academyDTO->is_deleted,
+            'created_by' => $academyDTO->createdBy,
+            'updated_by' => $academyDTO->updatedBy
         ]);
     }
 

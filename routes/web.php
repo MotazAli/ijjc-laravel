@@ -3,13 +3,10 @@
 use App\Http\Controllers\AcademiesController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsersController;
-use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Dashboard\Index;
-use App\Http\Livewire\Dashboard\Users\Edit as UserEdit;
-use App\Http\Livewire\Dashboard\Users\Index as UsersIndex;
-use App\Http\Livewire\Dashboard\Users\Show as UserShow;
 use App\Http\Livewire\Menu\Affiliates;
 use App\Http\Livewire\Menu\Athletes;
 use App\Http\Livewire\Menu\Instructors;
@@ -36,7 +33,7 @@ Route::prefix('academies')->group(function(){
 });
 
 Route::middleware(['auth'])->prefix('dashboard')->group(function(){
-    Route::get('/', Index::class)->name('dashboard.index');
+    Route::get('/', [DashboardsController::class,'index'])->name('dashboard.index');
 
     Route::prefix('/users')->group(function(){
         Route::get('/', [UsersController::class,'index'])->name('dashboard.users.index');

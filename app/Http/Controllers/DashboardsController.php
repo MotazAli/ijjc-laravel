@@ -2,63 +2,50 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreAcademyRequest;
-use App\Interfaces\Services\AcademiesServiceInterface;
+
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Routing\Redirector;
 
-class AcademiesController extends Controller
+class DashboardsController extends Controller
 {
 
-
-    private int $rowsPerPage = 6;
-
-
-    public function __construct(protected AcademiesServiceInterface $academiesService){
+    public function __construct(){
 
     }
+
 
     /**
      * Display a listing of the resource.
      *
      * @return Application|Factory|View
      */
-    public function index(): View|Factory|Application
+    public function index(): Application|Factory|View
     {
-        $academies = $this->academiesService->getAllAcademiesAscendingPagination($this->rowsPerPage);
-        return view('dashboard.academies.index',[ 'academies' => $academies ]);
+        return view('dashboard.index');
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Application|Factory|View
+     * @return Response
      */
-    public function create(): View|Factory|Application
+    public function create()
     {
         //
-        return view('dashboard.academies.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreAcademyRequest $request
-     * @return RedirectResponse|Redirector|Application
+     * @param  \Illuminate\Http\Request  $request
+     * @return Response
      */
-    public function store(StoreAcademyRequest $request): Application|RedirectResponse|Redirector
+    public function store(Request $request)
     {
         //
-        $data = $request->all();
-        //dd($data);
-        $request->Validated($data);
-        $academy = $this->academiesService->createAcademy($data);
-        return redirect(route('dashboard.academies.index'));
     }
 
     /**
@@ -86,7 +73,7 @@ class AcademiesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return Response
      */

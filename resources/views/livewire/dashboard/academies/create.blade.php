@@ -19,7 +19,9 @@
         </div>
     @endif
 
-    <form class=" pt-10 pb-6 border border-colors-theme colors-theme bg-gray-50 "
+    <form x-data="{isSubmitted :false}"
+          x-on:submit="isSubmitted= true"
+          class=" pt-10 pb-6 border border-colors-theme colors-theme bg-gray-50 "
           enctype="multipart/form-data"
 {{--          wire:submit="$emit('showLoading')"--}}
           action="{{route('dashboard.academies.store')}}"
@@ -86,8 +88,8 @@
                             <!-- toggle -->
                             <div class=" ml-6 relative">
                                 <!-- input -->
-                                <input type="hidden" name="is_active" value="0" />
-                                <input  type="checkbox"  id="is_active" name="is_active" value="1" {{old('is_active') == 1 ? 'checked': '' }}  class="sr-only"/>
+                                <input type="hidden" name="is_active" value="false" />
+                                <input  type="checkbox"  id="is_active" name="is_active" value="true" {{old('is_active') == 'true' ? 'checked': '' }}  class="sr-only"/>
                                 <!-- line -->
                                 <div class="check_background block bg-gray-600 w-14 h-8 rounded-full"></div>
                                 <!-- dot -->
@@ -110,8 +112,8 @@
                             <!-- toggle -->
                             <div class=" ml-6 relative">
                                 <!-- input -->
-                                <input type="hidden" name="is_shown" value="0" />
-                                <input type="checkbox"  id="is_shown" name="is_shown" value="1" {{old('is_shown') == 1 ? 'checked': '' }}  class="sr-only"/>
+                                <input type="hidden" name="is_shown" value="false" />
+                                <input type="checkbox"  id="is_shown" name="is_shown" value="true" {{old('is_shown') == 'true' ? 'checked': '' }}  class="sr-only"/>
                                 <!-- line -->
                                 <div class="check_background block bg-gray-600 w-14 h-8 rounded-full"></div>
                                 <!-- dot -->

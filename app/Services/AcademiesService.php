@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Auth;
 
 class AcademiesService implements AcademiesServiceInterface
 {
@@ -19,6 +20,8 @@ class AcademiesService implements AcademiesServiceInterface
 
     public function createAcademy(array $data):Academy
     {
+        $data['created_by'] = Auth::id();
+        $data['updated_by'] = Auth::id();
         $academyDTO = AcademyDTO::convertDataToDto($data);
         return $this->academiesRepository->insertAcademy($academyDTO);
     }
