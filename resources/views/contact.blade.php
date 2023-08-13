@@ -20,7 +20,8 @@
                    xl:text-[40px]
                    "
                    >
-                   GET IN TOUCH WITH US
+                   {{ __('contact.GET_IN_TOUCH_WITH_US') }}
+                   {{-- GET IN TOUCH WITH US --}}
                 </h2>
                 <p class="text-base text-body-color leading-relaxed mb-9">
                     Feel free to come in and say hello or you can reach us by phone, email or the short contact form.

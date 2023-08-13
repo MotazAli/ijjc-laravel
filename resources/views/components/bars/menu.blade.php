@@ -16,7 +16,7 @@
      x-transition:enter.duration.500ms
      x-transition:leave.duration.400ms
      x-on:click.away="showMenu = false"
-     x-data="{dropdownExample : false }" class="w-64 h-screen overflow-y-auto fixed right-0 top-0  " aria-label="Sidebar">
+     x-data="{dropdownExample : false, dropdownLanguage:false }" class="w-64 h-screen overflow-y-auto {!! app()->getLocale() == 'ar' ? "fixed left-0" : "fixed right-0" !!}   top-0  " aria-label="Sidebar">
     
      <div class=" overflow-y-auto py-4 px-3 h-screen  border-solid border-l-[0.5px] border-b-[0.5px] colors-theme border-colors-theme bg-gray-50 ">
          
@@ -87,6 +87,9 @@
                    </li>
              </ul>
           </li>
+
+
+         
 
 
           <!-- Kanban -->
@@ -230,6 +233,36 @@
             </div>
       @endif
 
+      <ul class="space-y-2 ">
+         <li>
+            <button x-on:click="dropdownLanguage = !dropdownLanguage" type="button" class="flex items-center p-2 w-full text-base font-normal  rounded-lg transition duration-75 group hover:bg-gray-100  dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
+              
+              {{-- <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6  transition duration-75 group-hover:text-gray-900  dark:group-hover:text-white" fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zm-6 400H54a6 6 0 0 1-6-6V86a6 6 0 0 1 6-6h404a6 6 0 0 1 6 6v340a6 6 0 0 1-6 6zm-42-92v24c0 6.627-5.373 12-12 12H204c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h200c6.627 0 12 5.373 12 12zm0-96v24c0 6.627-5.373 12-12 12H204c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h200c6.627 0 12 5.373 12 12zm0-96v24c0 6.627-5.373 12-12 12H204c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h200c6.627 0 12 5.373 12 12zm-252 12c0 19.882-16.118 36-36 36s-36-16.118-36-36 16.118-36 36-36 36 16.118 36 36zm0 96c0 19.882-16.118 36-36 36s-36-16.118-36-36 16.118-36 36-36 36 16.118 36 36zm0 96c0 19.882-16.118 36-36 36s-36-16.118-36-36 16.118-36 36-36 36 16.118 36 36z"/></svg> --}}
+              {{-- <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6  transition duration-75 group-hover:text-gray-900  dark:group-hover:text-white" fill="currentColor"  height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M8.5 2H11.5C12.1531 2 12.7087 2.4174 12.9146 3H14.5C15.3284 3 16 3.67157 16 4.5V16.5C16 17.3284 15.3284 18 14.5 18H5.5C4.67157 18 4 17.3284 4 16.5V4.5C4 3.67157 4.67157 3 5.5 3H7.08535C7.29127 2.4174 7.84689 2 8.5 2ZM8 3.5C8 3.77614 8.22386 4 8.5 4H11.5C11.7761 4 12 3.77614 12 3.5C12 3.22386 11.7761 3 11.5 3H8.5C8.22386 3 8 3.22386 8 3.5ZM12.75 9.25C13.1642 9.25 13.5 8.91421 13.5 8.5C13.5 8.08579 13.1642 7.75 12.75 7.75C12.3358 7.75 12 8.08579 12 8.5C12 8.91421 12.3358 9.25 12.75 9.25ZM12.75 12.25C13.1642 12.25 13.5 11.9142 13.5 11.5C13.5 11.0858 13.1642 10.75 12.75 10.75C12.3358 10.75 12 11.0858 12 11.5C12 11.9142 12.3358 12.25 12.75 12.25ZM12 14.5C12 14.9142 12.3358 15.25 12.75 15.25C13.1642 15.25 13.5 14.9142 13.5 14.5C13.5 14.0858 13.1642 13.75 12.75 13.75C12.3358 13.75 12 14.0858 12 14.5ZM11 8.5C11 8.22386 10.7761 8 10.5 8H7C6.72386 8 6.5 8.22386 6.5 8.5C6.5 8.77614 6.72386 9 7 9H10.5C10.7761 9 11 8.77614 11 8.5ZM11 11.5C11 11.2239 10.7761 11 10.5 11H7C6.72386 11 6.5 11.2239 6.5 11.5C6.5 11.7761 6.72386 12 7 12H10.5C10.7761 12 11 11.7761 11 11.5ZM11 14.5C11 14.2239 10.7761 14 10.5 14H7C6.72386 14 6.5 14.2239 6.5 14.5C6.5 14.7761 6.72386 15 7 15H10.5C10.7761 15 11 14.7761 11 14.5Z" /></svg> --}}
+              {{-- <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path></svg>
+                   --}}
+
+                  <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6  transition duration-75 group-hover:text-gray-900  dark:group-hover:text-white" fill="currentColor" viewBox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M152.1 236.2c-3.5-12.1-7.8-33.2-7.8-33.2h-.5s-4.3 21.1-7.8 33.2l-11.1 37.5H163zM616 96H336v320h280c13.3 0 24-10.7 24-24V120c0-13.3-10.7-24-24-24zm-24 120c0 6.6-5.4 12-12 12h-11.4c-6.9 23.6-21.7 47.4-42.7 69.9 8.4 6.4 17.1 12.5 26.1 18 5.5 3.4 7.3 10.5 4.1 16.2l-7.9 13.9c-3.4 5.9-10.9 7.8-16.7 4.3-12.6-7.8-24.5-16.1-35.4-24.9-10.9 8.7-22.7 17.1-35.4 24.9-5.8 3.5-13.3 1.6-16.7-4.3l-7.9-13.9c-3.2-5.6-1.4-12.8 4.2-16.2 9.3-5.7 18-11.7 26.1-18-7.9-8.4-14.9-17-21-25.7-4-5.7-2.2-13.6 3.7-17.1l6.5-3.9 7.3-4.3c5.4-3.2 12.4-1.7 16 3.4 5 7 10.8 14 17.4 20.9 13.5-14.2 23.8-28.9 30-43.2H412c-6.6 0-12-5.4-12-12v-16c0-6.6 5.4-12 12-12h64v-16c0-6.6 5.4-12 12-12h16c6.6 0 12 5.4 12 12v16h64c6.6 0 12 5.4 12 12zM0 120v272c0 13.3 10.7 24 24 24h280V96H24c-13.3 0-24 10.7-24 24zm58.9 216.1L116.4 167c1.7-4.9 6.2-8.1 11.4-8.1h32.5c5.1 0 9.7 3.3 11.4 8.1l57.5 169.1c2.6 7.8-3.1 15.9-11.4 15.9h-22.9a12 12 0 0 1-11.5-8.6l-9.4-31.9h-60.2l-9.1 31.8c-1.5 5.1-6.2 8.7-11.5 8.7H70.3c-8.2 0-14-8.1-11.4-15.9z"/></svg>
+                  <span class="flex-1 ml-3 text-left whitespace-nowrap font-semibold" sidebar-toggle-item="">{{ Config::get('languages')[App::getLocale()]['display'] }}</span>
+                  <svg sidebar-toggle-item="" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </button>
+            <ul id="dropdown-languages" x-bind:class="{'hidden': !dropdownLanguage }" class=" py-2 space-y-2">
+                  
+                  @foreach (Config::get('languages') as $lang => $language)
+                     @if ($lang != App::getLocale())
+                        <li>
+                          <a class="flex items-center p-2 pl-11 w-full text-base font-semibold  rounded-lg transition duration-75 group hover:bg-gray-100  dark:hover:bg-gray-700 " href="{{ route('lang.switch', $lang) }}"> <span class="flag-icon flag-icon-{{$language['flag-icon']}}"></span> &nbsp; {{$language['display']}}</a>
+                        </li>
+                     @endif
+                  @endforeach
+            </ul>
+         </li>
+      </ul>
+
+     
+
+
+     
      
             <x-buttons.light-dark-toggle/>
 

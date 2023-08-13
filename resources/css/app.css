@@ -1,6 +1,16 @@
+/* Flag Icon CSS */
+@import 'flag-icon-css/css/flag-icons.min.css';
+/* @import '~flag-icon-css/sass/flag-icons.scss'; */
+/* @import "~flag/flag-icons.scss"; */
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
 
 
 html,

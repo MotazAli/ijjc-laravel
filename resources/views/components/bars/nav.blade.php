@@ -6,7 +6,10 @@
          src="{{ asset('assets/images/ijjc_red_logo.png') }}" 
          alt="ijjc" />
 
-      <h1  class="  text-xl font-bold self-center" >International Jiu-Jitsu Center</h1>
+        <h1  class="  text-xl font-bold self-center" >
+            {{-- International Jiu-Jitsu Center --}}
+            {{ __('navigations.International_Jiu_Jitsu_Center') }}
+        </h1>
      
     </div>
     

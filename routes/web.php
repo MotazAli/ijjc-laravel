@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LanguagesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Livewire\Dashboard\Index;
 use App\Http\Livewire\Menu\Affiliates;
@@ -23,6 +24,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::get('lang/{lang}', [LanguagesController::class,'switchLang'])->name('lang.switch');// ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
 Route::prefix('academies')->group(function(){
     Route::get('/instructors', Instructors::class)->name('instructors');
