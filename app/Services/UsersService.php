@@ -19,7 +19,7 @@ class UsersService implements UsersServiceInterface{
 
 
     public function createUser(array $data): User{
-        $userDTO = UserDTO::convert($data);
+        $userDTO = UserDTO::convertLite($data);
         return $this->usersRepository->insertUser($userDTO);
         // return User::create([
         //     'name' => $data['name'],

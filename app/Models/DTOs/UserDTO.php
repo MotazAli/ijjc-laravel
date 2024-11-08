@@ -3,6 +3,7 @@
 
 namespace App\Models\DTOs;
 
+use DateTime;
 use Illuminate\Support\Facades\Date;
 
 class UserDTO{
@@ -11,11 +12,11 @@ class UserDTO{
         public string $name,
         public string $email,
         public string $password,
-        public Date $birth_date,
-        public string $gender,
-        public string $phone,
-        public string $image,
-        public bool $is_deleted,
+        public ?Date $birth_date = null,
+        public ?string $gender = "",
+        public ?string $phone = "",
+        public ?string $image = "",
+        public bool $is_deleted = false,
         )
     {}
 
@@ -31,6 +32,13 @@ class UserDTO{
             $data['phone'],
             $data['image'],
             $data['is_deleted'],
+        );
+    }
+    public static function convertLite(array $data):UserDTO{
+        return new UserDTO(
+            $data['name'],
+            $data['email'],
+            $data['password']
         );
     }
 

@@ -10,7 +10,7 @@
                 {{-- <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                     Login in to your account
                 </h1> --}}
-                @if ($errors->any())
+                {{-- @if ($errors->any())
                     <div class="pb-8">
                             <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
                                 Something went wrong...
@@ -21,7 +21,8 @@
                                 @endforeach
                             </ul>
                     </div>
-                @endif
+                @endif --}}
+                <x-errors.auth />
 
                 <form x-data="{isSubmitted :false}"
                       x-on:submit="isSubmitted= true"

@@ -5,14 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginUserRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Interfaces\Services\AuthServiceInterface;
+use App\Interfaces\Services\UsersServiceInterface;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
 
-    public function __construct(protected AuthServiceInterface $authService)
-    { }
+    public function __construct(
+        protected AuthServiceInterface $authService,
+        protected UsersServiceInterface $usersService
+        ){ }
 
 
 
@@ -21,14 +25,28 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function login(LoginUserRequest $request){
+    public function login(LoginUserRequest $request):RedirectResponse{
 
         //dd($request->all());
-        $request->Validated($request->all());
-        return $this->authService->login(
+        $data = $request->all();
+        $request->Validated($data);
+        if(!Auth::attempt(['email' => $data['email'] ,'password' =>$data['password'] ])){
+            return back()->withErrors('invalid credentials');
+        }
+
+        $result =  $this->authService->login(
             $request->session(),
-            $request->all()
+            $data
         );
+        if($result) return redirect(route('home.index'));
+
+        return back()->withErrors('Server is down, try again later');
+
+
+        // return $this->authService->login(
+        //     $request->session(),
+        //     $request->all()
+        // );
 
         // if(!Auth::attempt(['email' => $request->email ,'password' =>$request->password ])){
         //     return back()->withErrors('invalid credentials');
@@ -54,23 +72,25 @@ class AuthController extends Controller
 
 
     //show logout
-    public function logout(Request $request){
-        return $this->authService->logout(
+    public function logout(Request $request):RedirectResponse{
+        $result = $this->authService->logout(
             $request->session()
         );
         // Auth::logout();
         // $request->session()->invalidate();
         // $request->session()->regenerateToken();
-        // return redirect(route('auth.login'));
+        if($result) return redirect(route('auth.login'));
+
+        return redirect(route('home.index'));
     }
 
 
     //signup => store new user
-    public function store(StoreUserRequest $request){
+    public function store(StoreUserRequest $request):RedirectResponse{
         $data = $request->all();
         $request->Validated($data);
 
-        $user = $this->usersService()->createUser($data);
+        $user = $this->usersService->createUser($data);
 
         // $user = User::create([
         //     'name' => $request->name,
